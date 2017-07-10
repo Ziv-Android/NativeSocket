@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">NativeSocket</string>
-    <string name="port_edit">Port Number</string>
-    <string name="start_button">Start Server</string>
+
+    <string name="title_server">Echo Server</string>
+    <string name="btn_server_start">Start Server</string>
+    <string name="edit_port">Port Number</string>
+
+    <string name="title_client">Echo Client</string>
+    <string name="btn_client_start">Start Client</string>
+    <string name="edit_ip">IP Address</string>
+    <string name="edit_message">Message</string>
+    <string name="btn_send">Send</string>
+
+    <string name="title_local">Local Echo</string>
+    <string name="edit_port_local">Port Name</string>
 </resources>
