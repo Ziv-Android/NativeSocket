@@ -15,6 +15,14 @@ extern "C" {
 JNIEXPORT void JNICALL Java_com_ziv_socket_ClientActivity_nativeStartTcpClient
   (JNIEnv *, jobject, jstring, jint, jstring);
 
+/*
+ * Class:     com_ziv_socket_ClientActivity
+ * Method:    nativeStartUdpClient
+ * Signature: (Ljava/lang/String;ILjava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_com_ziv_socket_ClientActivity_nativeStartUdpClient
+        (JNIEnv *, jobject, jstring, jint, jstring);
+
 #ifdef __cplusplus
 }
 #endif

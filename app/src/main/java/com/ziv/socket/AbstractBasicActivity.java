@@ -18,10 +18,13 @@ import android.widget.TextView;
 
 public abstract class AbstractBasicActivity extends AppCompatActivity implements View.OnClickListener {
     protected static final String TAG = "AbstractBasicActivity";
+    public static final int TYPE_TCP = 1;
+    public static final int TYPE_UDP = 2;
     // 布局ID
     private final int layoutID;
     protected EditText portEdit;
-    protected Button startBtn;
+    protected Button startTcpBtn;
+    protected Button startUdpBtn;
     protected ScrollView logScroll;
     protected TextView logView;
 
@@ -35,24 +38,29 @@ public abstract class AbstractBasicActivity extends AppCompatActivity implements
 
         setContentView(layoutID);
         portEdit = (EditText) findViewById(R.id.port_edit);
-        startBtn = (Button) findViewById(R.id.start_button);
+        startTcpBtn = (Button) findViewById(R.id.start_tcp_button);
+        startUdpBtn = (Button) findViewById(R.id.start_udp_button);
         logScroll = (ScrollView) findViewById(R.id.log_scroll);
         logView = (TextView) findViewById(R.id.log_view);
 
-        startBtn.setOnClickListener(this);
+        startTcpBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v == startBtn) {
-            onStartButtonClicked();
+        if (v == startTcpBtn) {
+            onStartTcpButtonClicked();
+        }
+        if (v == startUdpBtn) {
+            onStartUdpButtonClicked();
         }
     }
 
     /**
      * 开始按钮点击事件
      */
-    protected abstract void onStartButtonClicked();
+    protected abstract void onStartTcpButtonClicked();
+    protected abstract void onStartUdpButtonClicked();
 
     /**
      * 获取端口号
@@ -102,7 +110,8 @@ public abstract class AbstractBasicActivity extends AppCompatActivity implements
          * 调用线程之前的初始化
          */
         protected void onPreExecute() {
-            startBtn.setEnabled(false);
+            startTcpBtn.setEnabled(false);
+            startUdpBtn.setEnabled(false);
             logView.setText("");
         }
 
@@ -124,7 +133,8 @@ public abstract class AbstractBasicActivity extends AppCompatActivity implements
         protected abstract void onBackground();
 
         protected void onPostExecute(){
-            startBtn.setEnabled(true);
+            startTcpBtn.setEnabled(true);
+            startUdpBtn.setEnabled(true);
         }
     }
 

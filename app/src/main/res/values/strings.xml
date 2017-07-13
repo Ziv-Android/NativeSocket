@@ -2,11 +2,13 @@
     <string name="app_name">NativeSocket</string>
 
     <string name="title_server">Echo Server</string>
-    <string name="btn_server_start">Start Server</string>
+    <string name="btn_tcp_server_start">TCP Server</string>
+    <string name="btn_udp_server_start">UDP Server</string>
     <string name="edit_port">Port Number</string>
 
     <string name="title_client">Echo Client</string>
-    <string name="btn_client_start">Start Client</string>
+    <string name="btn_tcp_client_start">TCP Client</string>
+    <string name="btn_udp_client_start">UDP Client</string>
     <string name="edit_ip">IP Address</string>
     <string name="edit_message">Message</string>
     <string name="btn_send">Send</string>

@@ -12,10 +12,19 @@ public class ServerActivity extends AbstractBasicActivity {
     }
 
     @Override
-    protected void onStartButtonClicked() {
+    protected void onStartTcpButtonClicked() {
         Integer port = getPort();
         if (port != null) {
-            ServerTask serverTask = new ServerTask(port);
+            ServerTask serverTask = new ServerTask(port, TYPE_TCP);
+            serverTask.start();
+        }
+    }
+
+    @Override
+    protected void onStartUdpButtonClicked() {
+        Integer port = getPort();
+        if (port != null) {
+            ServerTask serverTask = new ServerTask(port, TYPE_UDP);
             serverTask.start();
         }
     }
@@ -23,16 +32,16 @@ public class ServerActivity extends AbstractBasicActivity {
     /**
      * 启动TCP服务
      *
-     * @param port
-     * @throws Exception
+     * @param port Port Number
+     * @throws Exception IOException
      */
     private native void nativeStartTcpServer(int port) throws Exception;
 
     /**
      * 启动UDP服务
      *
-     * @param port
-     * @throws Exception
+     * @param port Port Number
+     * @throws Exception IOException
      */
     private native void nativeStartUdpServer(int port) throws Exception;
 
@@ -42,9 +51,11 @@ public class ServerActivity extends AbstractBasicActivity {
     private class ServerTask extends AbstractTask{
         // 端口号
         private final int port;
+        private final int type;
 
-        public ServerTask(int port) {
+        public ServerTask(int port, int type) {
             this.port = port;
+            this.type = type;
         }
 
         @Override
@@ -52,7 +63,13 @@ public class ServerActivity extends AbstractBasicActivity {
             logMessage("Starting server:");
 
             try {
-                nativeStartTcpServer(port);
+                if (type == TYPE_TCP) {
+                    nativeStartTcpServer(port);
+                }else if(type == TYPE_UDP) {
+                    nativeStartUdpServer(port);
+                }else {
+                    logMessage("No type for TYPE_" + type);
+                }
             } catch (Exception e) {
                 logMessage(e.toString());
             }
