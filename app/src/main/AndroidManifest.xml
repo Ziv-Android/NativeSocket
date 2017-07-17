@@ -18,8 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ServerActivity"/>
-        <activity android:name=".ClientActivity"/>
+        <activity android:name=".ServerActivity"
+            android:label="@string/title_server"/>
+        <activity android:name=".ClientActivity"
+            android:label="@string/title_client"/>
+        <activity android:name=".LocalActivity"
+            android:label="@string/title_local"/>
     </application>
 
 </manifest>

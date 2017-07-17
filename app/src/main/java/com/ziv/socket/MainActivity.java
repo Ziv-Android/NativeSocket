@@ -27,4 +27,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ClientActivity.class);
         startActivity(intent);
     }
+
+    public void clickLocal(View view) {
+        Intent intent = new Intent(this, LocalActivity.class);
+        startActivity(intent);
+    }
 }

@@ -4,18 +4,7 @@
 #ifndef NATIVESOCKET_TCPTOOLS_H
 #define NATIVESOCKET_TCPTOOLS_H
 
-#include "com_ziv_socket_ServerActivity.h"
-
-// socketaddr_un
-#include <sys/un.h>
-// htons, socketaddr_in
-#include <netinet/in.h>
-// #include <sys/endian.h>
-
-// close, unlink
-#include <unistd.h>
-// offsetof
-#include <stddef.h>
+#include "common.h"
 
 /**
  * 构造新的TCP Socket

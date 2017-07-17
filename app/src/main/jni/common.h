@@ -16,6 +16,16 @@
 #include <sys/socket.h>
 // inet_ntop
 #include <arpa/inet.h>
+// socketaddr_un
+#include <sys/un.h>
+// htons, socketaddr_in
+#include <netinet/in.h>
+// #include <sys/endian.h>
+
+// close, unlink
+#include <unistd.h>
+// offsetof
+#include <stddef.h>
 
 #define MAX_LOG_MESSAGE_LENGTH 256
 #define MAX_BUFFER_SIZE 80

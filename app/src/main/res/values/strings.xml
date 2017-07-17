@@ -15,4 +15,7 @@
 
     <string name="title_local">Local Echo</string>
     <string name="edit_port_local">Port Name</string>
+    <string name="local_port_edit">Local Port</string>
+    <string name="btn_local_tcp_client_start">Local TCP Client</string>
+    <string name="btn_local_udp_client_start">Local UDP Client</string>
 </resources>

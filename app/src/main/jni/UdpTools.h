@@ -5,6 +5,8 @@
 #ifndef NATIVESOCKET_UDPTOOLS_H
 #define NATIVESOCKET_UDPTOOLS_H
 
+#include "common.h"
+
 int NewUdpSocket(JNIEnv *env, jobject obj);
 
 ssize_t ReceiveDatagramFromSocket(JNIEnv *env, jobject obj, int sd, struct sockaddr_in *address,
